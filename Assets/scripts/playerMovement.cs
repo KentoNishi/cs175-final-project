@@ -51,7 +51,7 @@ public class playerMovement : MonoBehaviour
         Controller.Move(CurrentMoveVelocity * Time.deltaTime);
 
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(groundCheckRay, 1.1f))
+        if (Physics.Raycast(groundCheckRay, 1.7f))
         {
             CurrentForceVelocity.y = -5f;
 
