@@ -51,9 +51,9 @@ public class playerMovement : MonoBehaviour
         Controller.Move(CurrentMoveVelocity * Time.deltaTime);
 
         Ray groundCheckRay = new Ray(transform.position, Vector3.down);
-        if (Physics.Raycast(groundCheckRay, 20f))
+        if (Physics.Raycast(groundCheckRay, 1.1f))
         {
-            CurrentForceVelocity.y = 0f;
+            CurrentForceVelocity.y = -5f;
 
             if (Input.GetKey(KeyCode.Space))
             {
@@ -63,5 +63,8 @@ public class playerMovement : MonoBehaviour
         else {
             CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
         }
+
+        Controller.Move(CurrentForceVelocity * Time.deltaTime);
+        
     }
 }
