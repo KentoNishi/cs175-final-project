@@ -7,9 +7,6 @@ public class teleport : MonoBehaviour
     public Transform player, destination;
     public GameObject playerObj;
     
-    void Start() {
-        Debug.Log("debug log");
-    }
 
     private void OnTriggerEnter() {
         playerObj.SetActive(false);
