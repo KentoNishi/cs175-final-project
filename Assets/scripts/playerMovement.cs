@@ -39,7 +39,7 @@ public class playerMovement : MonoBehaviour
         }
 
         Vector3 MoveVector = transform.TransformDirection(PlayerInput);
-        float CurrentSpeed = Input.GetKey(KeyCode.LeftShift) ? RunSpeed : WalkSpeed;
+        float CurrentSpeed = (RunSpeed + WalkSpeed) / 2;
 
         CurrentMoveVelocity = Vector3.SmoothDamp(
             CurrentMoveVelocity,
@@ -55,10 +55,10 @@ public class playerMovement : MonoBehaviour
         {
             CurrentForceVelocity.y = -5f;
 
-            if (Input.GetKey(KeyCode.Space))
-            {
-                CurrentForceVelocity.y = JumpStrength;
-            }
+            // if (Input.GetKey(KeyCode.Space))
+            // {
+            //     CurrentForceVelocity.y = JumpStrength;
+            // }
         }
         else {
             CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
