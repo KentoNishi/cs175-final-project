@@ -3,7 +3,7 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public Portal targetPortal;
-        public Transform normalVisible;
+    public Transform normalVisible;
     public Transform normalInvisible;
     public Camera portalCamera;
     public Renderer viewthroughRenderer;
@@ -13,13 +13,13 @@ public class Portal : MonoBehaviour
     private Camera mainCamera;
     private Vector4 vectorPlane;
 
-    public static Vector3 getVirtPos(Portal target, Vector3 position)
+    public Vector3 getVirtPos(Portal target, Vector3 position)
     {
-        return target.normalInvisible.TransformPoint(this.normalVisible.InverseTransformPoint(position));
+        return target.normalInvisible.TransformPoint(normalVisible.InverseTransformPoint(position));
     }
 
-    public static Quaternion getVirtQuat(Portal target, Quaternion rotation) {
-        return target.normalInvisible.rotation * Quaternion.Inverse(this.normalVisible.rotation) * rotation;
+    public Quaternion getVirtQuat(Portal target, Quaternion rotation) {
+        return target.normalInvisible.rotation * Quaternion.Inverse(normalVisible.rotation) * rotation;
     }
 
     private void Start()

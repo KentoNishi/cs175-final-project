@@ -59,6 +59,10 @@ public class playerMovement : MonoBehaviour
             // {
             //     CurrentForceVelocity.y = JumpStrength;
             // }
+            if (Input.GetKey("escape"))
+            {
+                Application.Quit();
+            }
         }
         else {
             CurrentForceVelocity.y -= GravityStrength * Time.deltaTime;
